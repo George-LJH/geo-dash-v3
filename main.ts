@@ -4,11 +4,13 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.vx = 100
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
+    GRAVITY = 3
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile15`, function (sprite, location) {
     mySprite.vy = -225
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, location) {
-    color.startFade(color.originalPalette, color.StillLife)
     Reverse_Gravity()
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -88,46 +90,50 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     )
     if (mySprite.isHittingTile(CollisionDirection.Top)) {
         music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
-        mySprite.vy = -125
+        mySprite.vy = 125
     }
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
         music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
         mySprite.vy = -125
     }
+    if (GRAVITY == 3) {
+        music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
+        mySprite.vy = -125
+    }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile12`, function (sprite, location) {
-    color.startFade(color.StillLife, color.SteamPunk)
     Proper_Gravity()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, location) {
+    color.startFadeFromCurrent(color.originalPalette)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
     info.clearCountup()
     info.startCountup(false)
     Reverse_Gravity()
+    DEATH += 1
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile18`, function (sprite, location) {
-    color.startFade(color.GrayScale, color.originalPalette)
     mySprite.vx = 100
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile16`, function (sprite, location) {
     mySprite.vy = 225
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile20`, function (sprite, location) {
-    color.startFade(color.StillLife, color.SteamPunk)
     Proper_Gravity()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile17`, function (sprite, location) {
-    color.startFade(color.originalPalette, color.GrayScale)
     mySprite.vx = -100
 })
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     animation.stopAnimation(animation.AnimationTypes.All, mySprite)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile8`, function (sprite, location) {
+    color.startFadeFromCurrent(color.originalPalette)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
     info.clearCountup()
     info.startCountup(false)
     Reverse_Gravity()
+    DEATH += 1
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.vx += -25
@@ -220,35 +226,53 @@ controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
             music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
             mySprite.vy = -125
         }
+    } else if (GRAVITY == 3) {
+        music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
+        mySprite.vy = -125
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile10`, function (sprite, location) {
+    color.startFadeFromCurrent(color.originalPalette)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
     info.clearCountup()
     info.startCountup(false)
     Reverse_Gravity()
+    DEATH += 1
 })
 function Proper_Gravity () {
     GRAVITY = 0
     mySprite.ay = 350
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, location) {
-    color.startFade(color.originalPalette, color.StillLife)
-    Reverse_Gravity()
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile11`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile23`, function (sprite, location) {
+    color.startFadeFromCurrent(color.originalPalette)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
     info.clearCountup()
     info.startCountup(false)
     Reverse_Gravity()
+    DEATH += 1
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, location) {
+    Reverse_Gravity()
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile11`, function (sprite, location) {
+    color.startFadeFromCurrent(color.originalPalette)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
+    info.clearCountup()
+    info.startCountup(false)
+    Reverse_Gravity()
+    DEATH += 1
 })
 function Reverse_Gravity () {
     GRAVITY = 1
     mySprite.ay = -350
 }
 let GRAVITY = 0
+let DEATH = 0
 let mySprite: Sprite = null
 mySprite = sprites.create(assets.image`myImage3`, SpriteKind.Player)
+let textSprite = textsprite.create(convertToText(["ATTEMPT", DEATH]))
+let textSprite2 = textsprite.create("ATTEMPT")
+DEATH = 0
 mySprite.startEffect(effects.trail)
 scene.cameraFollowSprite(mySprite)
 tiles.setCurrentTilemap(tilemap`level2`)
@@ -376,8 +400,9 @@ scene.setBackgroundImage(img`
     `)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
 Reverse_Gravity()
-game.splash("Hold B or Space to start. Press up to speed the game up, and down to slow the game down. Pressing B will reset the speed")
 scroller.scrollBackgroundWithCamera(scroller.CameraScrollMode.OnlyHorizontal)
+game.splash("Hold B or Space to start. Press up to speed the game up, and down to slow the game down. Pressing B will reset the speed.")
+let WAVE = 0
 forever(function () {
     info.setScore(info.getTimeElapsed())
 })
@@ -386,4 +411,12 @@ forever(function () {
 })
 forever(function () {
     mySprite.sayText("Speed:" + mySprite.vx)
+})
+forever(function () {
+    textSprite.setMaxFontHeight(20)
+    textSprite.setText(convertToText(DEATH))
+    textSprite.setMaxFontHeight(10)
+    textSprite2.setText("ATTEMPT")
+    tiles.placeOnTile(textSprite2, tiles.getTileLocation(2, 4))
+    tiles.placeOnTile(textSprite, tiles.getTileLocation(4, 4))
 })

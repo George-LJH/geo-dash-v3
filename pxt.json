@@ -11,7 +11,8 @@
         "Color Fading": "github:jwunderl/pxt-color#v0.2.3",
         "pxt-zoom": "github:kiwiphoenix364/pxt-zoom#v2.0.1",
         "pxt-countup": "github:shakao/pxt-countup#v0.0.2",
-        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2"
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
     },
     "files": [
         "main.blocks",
