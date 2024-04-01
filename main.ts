@@ -98,7 +98,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
     if (GRAVITY == 3) {
         music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
-        mySprite.vy = -125
+        mySprite.vy = -150
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile12`, function (sprite, location) {
@@ -228,7 +228,7 @@ controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
         }
     } else if (GRAVITY == 3) {
         music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
-        mySprite.vy = -125
+        mySprite.vy = -150
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile10`, function (sprite, location) {
