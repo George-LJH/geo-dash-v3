@@ -1,8 +1,8 @@
 {
-    "image2": {
-        "data": "hwQQABAAAAD/AADwDwAA/////x/x////8BH/////EQ/wEf////8RD/D///////8A8P8fERHx/wDw/x8REfH/AB//HxER8f/xH/8fERHx//Hw/x8REfH/APD/HxER8f8A8P///////wDwEf////8RD/AR/////xEP////H/H/////AADwDwAA/w==",
+    "image5": {
+        "data": "hwQQABAAAACZmZmZmZmZmfn///+f+f+f+f//n5mZ/5/5//+fmZn/n/n5//+fmf+f+Z///5/5/5/5//mfmfn/n/n/n/+Zmf+f+f///5mZ/5/5//+fmfn/n/mZ+f+f+f+f+Zn5/5+Z/5/5mfmfmZn/n/n//5+Zmf+f+f///5/5/5+ZmZmZmZmZmQ==",
         "mimeType": "image/x-mkcd-f4",
-        "displayName": "myImage0"
+        "displayName": "myImage3"
     },
     "image3": {
         "data": "hwQQABAAAACIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIgAAACIiIiIiJCZCYiIiIiIkJkJiIiIAACQmQkAAACZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQ==",
@@ -19,10 +19,10 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage2"
     },
-    "image5": {
+    "image2": {
         "data": "hwQQABAAAACZmZmZmZmZmfn///+f+f+f+f//n5mZ/5/5//+fmZn/n/n5//+fmf+f+Z///5/5/5/5//mfmfn/n/n/n/+Zmf+f+f///5mZ/5/5//+fmfn/n/mZ+f+f+f+f+Zn5/5+Z/5/5mfmfmZn/n/n//5+Zmf+f+f///5/5/5+ZmZmZmZmZmQ==",
         "mimeType": "image/x-mkcd-f4",
-        "displayName": "myImage3"
+        "displayName": "myImage0"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

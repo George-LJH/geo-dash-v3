@@ -1,5 +1,5 @@
 {
-    "name": "GEO DASH V3 - Copy",
+    "name": "GEO DASH V3",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -28,7 +28,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.12.49",
+        "target": "1.12.51",
         "targetId": "arcade"
     },
     "supportedTargets": [

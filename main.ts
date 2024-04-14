@@ -1,9 +1,3 @@
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vx += 25
-})
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vx = 100
-})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
     GRAVITY = 3
 })
@@ -14,80 +8,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, 
     Reverse_Gravity()
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    animation.runImageAnimation(
-    mySprite,
-    [img`
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f 9 f f f f f 9 9 9 f f 9 
-        9 f f f f 9 f f f f 9 9 9 f f 9 
-        9 f f f f f 9 f f f 9 9 9 f f 9 
-        9 f f f f f f 9 f f f f f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f 9 9 f f 9 f f 9 f f 9 9 f 9 
-        9 f 9 9 f f 9 9 9 9 f f 9 9 f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f 9 9 9 f f 9 9 f f 9 9 9 f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        `,img`
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f f f f 9 9 f f f f f f f f 9 
-        9 f f f 9 9 9 9 9 f f f f f f 9 
-        9 f f f 9 9 9 9 9 f f f f f f 9 
-        9 f f f 9 9 9 f f f f f f 9 f 9 
-        9 f f f f 9 9 f f f f f 9 f f 9 
-        9 f f f f 9 9 9 9 f f 9 f f f 9 
-        9 f f f 9 9 9 9 f f 9 f f f f 9 
-        9 f f f 9 9 9 9 f f f f f f f 9 
-        9 f f f f 9 9 9 9 f f f f f f 9 
-        9 f f f f 9 9 f f f f 9 9 9 f 9 
-        9 f f f 9 9 9 f f f f 9 9 9 f 9 
-        9 f f f 9 9 9 9 9 f f 9 9 9 f 9 
-        9 f f f 9 9 9 9 9 f f f f f f 9 
-        9 f f f f 9 9 f f f f f f f f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        `,img`
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f 9 9 9 f f 9 9 f f 9 9 9 f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f 9 9 f f 9 9 9 9 f f 9 9 f 9 
-        9 f 9 9 f f 9 f f 9 f f 9 9 f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f f f f f 9 f f f f f f 9 
-        9 f f 9 9 9 f f f 9 f f f f f 9 
-        9 f f 9 9 9 f f f f 9 f f f f 9 
-        9 f f 9 9 9 f f f f f 9 f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        `,img`
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f f f f f f f f 9 9 f f f f 9 
-        9 f f f f f f 9 9 9 9 9 f f f 9 
-        9 f 9 9 9 f f 9 9 9 9 9 f f f 9 
-        9 f 9 9 9 f f f f 9 9 9 f f f 9 
-        9 f 9 9 9 f f f f 9 9 f f f f 9 
-        9 f f f f f f 9 9 9 9 f f f f 9 
-        9 f f f f f f f 9 9 9 9 f f f 9 
-        9 f f f f 9 f f 9 9 9 9 f f f 9 
-        9 f f f 9 f f 9 9 9 9 f f f f 9 
-        9 f f 9 f f f f f 9 9 f f f f 9 
-        9 f 9 f f f f f f 9 9 9 f f f 9 
-        9 f f f f f f 9 9 9 9 9 f f f 9 
-        9 f f f f f f 9 9 9 9 9 f f f 9 
-        9 f f f f f f f f 9 9 f f f f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        `],
-    50,
-    true
-    )
     if (mySprite.isHittingTile(CollisionDirection.Top)) {
         music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
         mySprite.vy = 125
@@ -135,87 +55,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile8`, function (sprite, l
     Reverse_Gravity()
     DEATH += 1
 })
-controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vx += -25
-})
 controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
     mySprite.vx = 100
     scroller.scrollBackgroundWithSpeed(-50, 0)
     info.startCountup(false)
-    animation.runImageAnimation(
-    mySprite,
-    [img`
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f 9 f f f f f 9 9 9 f f 9 
-        9 f f f f 9 f f f f 9 9 9 f f 9 
-        9 f f f f f 9 f f f 9 9 9 f f 9 
-        9 f f f f f f 9 f f f f f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f 9 9 f f 9 f f 9 f f 9 9 f 9 
-        9 f 9 9 f f 9 9 9 9 f f 9 9 f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f 9 9 9 f f 9 9 f f 9 9 9 f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        `,img`
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f f f f 9 9 f f f f f f f f 9 
-        9 f f f 9 9 9 9 9 f f f f f f 9 
-        9 f f f 9 9 9 9 9 f f f f f f 9 
-        9 f f f 9 9 9 f f f f f f 9 f 9 
-        9 f f f f 9 9 f f f f f 9 f f 9 
-        9 f f f f 9 9 9 9 f f 9 f f f 9 
-        9 f f f 9 9 9 9 f f 9 f f f f 9 
-        9 f f f 9 9 9 9 f f f f f f f 9 
-        9 f f f f 9 9 9 9 f f f f f f 9 
-        9 f f f f 9 9 f f f f 9 9 9 f 9 
-        9 f f f 9 9 9 f f f f 9 9 9 f 9 
-        9 f f f 9 9 9 9 9 f f 9 9 9 f 9 
-        9 f f f 9 9 9 9 9 f f f f f f 9 
-        9 f f f f 9 9 f f f f f f f f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        `,img`
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f 9 9 9 f f 9 9 f f 9 9 9 f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f 9 9 f f 9 9 9 9 f f 9 9 f 9 
-        9 f 9 9 f f 9 f f 9 f f 9 9 f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 f f f f f f f 9 f f f f f f 9 
-        9 f f 9 9 9 f f f 9 f f f f f 9 
-        9 f f 9 9 9 f f f f 9 f f f f 9 
-        9 f f 9 9 9 f f f f f 9 f f f 9 
-        9 f f f f f f f f f f f f f f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        `,img`
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        9 f f f f f f f f 9 9 f f f f 9 
-        9 f f f f f f 9 9 9 9 9 f f f 9 
-        9 f 9 9 9 f f 9 9 9 9 9 f f f 9 
-        9 f 9 9 9 f f f f 9 9 9 f f f 9 
-        9 f 9 9 9 f f f f 9 9 f f f f 9 
-        9 f f f f f f 9 9 9 9 f f f f 9 
-        9 f f f f f f f 9 9 9 9 f f f 9 
-        9 f f f f 9 f f 9 9 9 9 f f f 9 
-        9 f f f 9 f f 9 9 9 9 f f f f 9 
-        9 f f 9 f f f f f 9 9 f f f f 9 
-        9 f 9 f f f f f f 9 9 9 f f f 9 
-        9 f f f f f f 9 9 9 9 9 f f f 9 
-        9 f f f f f f 9 9 9 9 9 f f f 9 
-        9 f f f f f f f f 9 9 f f f f 9 
-        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
-        `],
-    50,
-    true
-    )
     if (GRAVITY == 1) {
         if (mySprite.isHittingTile(CollisionDirection.Top)) {
             music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
@@ -226,9 +69,6 @@ controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
             music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
             mySprite.vy = -125
         }
-    } else if (GRAVITY == 3) {
-        music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
-        mySprite.vy = -150
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile10`, function (sprite, location) {
@@ -266,10 +106,71 @@ function Reverse_Gravity () {
     GRAVITY = 1
     mySprite.ay = -350
 }
+let location: tiles.Location = null
 let GRAVITY = 0
 let DEATH = 0
 let mySprite: Sprite = null
-mySprite = sprites.create(assets.image`myImage3`, SpriteKind.Player)
+let list = randint(1, 4)
+if (list == 1) {
+    mySprite = sprites.create(assets.image`myImage0`, SpriteKind.Player)
+} else if (list == 2) {
+    mySprite = sprites.create(img`
+        8 8 8 8 8 8 8 8 f 9 9 9 9 9 9 9 
+        8 8 8 8 8 8 8 8 f 9 9 9 9 9 9 9 
+        8 8 8 8 8 8 8 8 f 9 9 9 9 9 9 9 
+        8 8 8 8 8 8 8 8 f 9 9 9 9 9 9 9 
+        8 8 8 8 8 f f f f 9 9 9 9 9 9 9 
+        8 8 8 8 8 f 9 9 9 9 9 9 9 9 9 9 
+        8 8 8 8 8 f 9 9 9 9 9 9 9 9 9 9 
+        8 8 8 8 8 f 9 9 9 9 9 9 9 9 9 9 
+        8 8 8 8 8 f 9 9 9 9 9 9 9 9 9 9 
+        8 8 8 8 8 f f f f 9 9 9 9 9 9 9 
+        8 8 8 8 8 8 8 8 f 9 9 9 9 9 9 9 
+        8 8 8 8 8 8 8 8 f 9 9 9 9 9 9 9 
+        8 8 8 8 8 8 8 8 f 9 9 9 9 9 9 9 
+        8 8 8 8 8 8 8 8 f 9 9 9 9 9 9 9 
+        8 8 8 8 8 8 8 8 f 9 9 9 9 9 9 9 
+        8 8 8 8 8 8 8 8 f 9 9 9 9 9 9 9 
+        `, SpriteKind.Player)
+} else if (list == 3) {
+    mySprite = sprites.create(img`
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+        3 f f f f f f f f f f f f f f 3 
+        3 f 3 3 3 3 f f f f 3 3 3 3 f 3 
+        3 f 3 3 3 3 f f f f 3 3 3 3 f 3 
+        3 f 3 3 3 3 f f f f 3 3 3 3 f 3 
+        3 f 3 3 3 3 f f f f 3 3 3 3 f 3 
+        3 f f f f f f f f f f f f f f 3 
+        3 f f f f f f f f f f f f f f 3 
+        3 f f 3 3 3 3 3 3 3 3 3 3 f f 3 
+        3 f f 3 . . . . . . . . 3 f f 3 
+        3 f f 3 . 3 3 3 3 3 3 . 3 f f 3 
+        3 3 3 3 . 3 f f f f 3 . 3 3 3 3 
+        . . . . . 3 f f f f 3 . . . . . 
+        3 3 3 3 3 3 f f f f 3 3 3 3 3 3 
+        3 f f f f f f f f f f f f f f 3 
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+        `, SpriteKind.Player)
+} else if (list == 4) {
+    mySprite = sprites.create(img`
+        5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+        5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+        5 5 f f f 5 5 5 5 5 5 f f f 5 5 
+        5 5 f f f 5 5 5 5 5 5 f f f 5 5 
+        5 5 f f f 5 5 5 5 5 5 f f f 5 5 
+        5 5 5 5 5 f f f f f f 5 5 5 5 5 
+        5 5 5 5 5 f f f f f f 5 5 5 5 5 
+        5 5 f f f f f f f f f f f f 5 5 
+        5 5 f f f f f f f f f f f f 5 5 
+        5 5 f f f f f f f f f f f f 5 5 
+        5 5 f f f f f f f f f f f f 5 5 
+        5 5 f f f f f f f f f f f f 5 5 
+        5 5 f f f 5 5 5 5 5 5 f f f 5 5 
+        5 5 f f f 5 5 5 5 5 5 f f f 5 5 
+        5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+        5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+        `, SpriteKind.Player)
+}
 let textSprite = textsprite.create(convertToText(["ATTEMPT", DEATH]))
 let textSprite2 = textsprite.create("ATTEMPT")
 DEATH = 0
@@ -401,7 +302,7 @@ scene.setBackgroundImage(img`
 tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
 Reverse_Gravity()
 scroller.scrollBackgroundWithCamera(scroller.CameraScrollMode.OnlyHorizontal)
-game.splash("Hold B or Space to start. Press up to speed the game up, and down to slow the game down. Pressing B will reset the speed.")
+game.splash("Hold A, Space, or Z to start. Press A, Space, or Z to jump.")
 let WAVE = 0
 forever(function () {
     info.setScore(info.getTimeElapsed())
@@ -410,13 +311,24 @@ forever(function () {
     Music.CatQuestVo1(songs.Ocean)
 })
 forever(function () {
-    mySprite.sayText("Speed:" + mySprite.vx)
-})
-forever(function () {
     textSprite.setMaxFontHeight(20)
     textSprite.setText(convertToText(DEATH))
     textSprite.setMaxFontHeight(10)
     textSprite2.setText("ATTEMPT")
     tiles.placeOnTile(textSprite2, tiles.getTileLocation(2, 4))
     tiles.placeOnTile(textSprite, tiles.getTileLocation(4, 4))
+})
+forever(function () {
+	
+})
+forever(function () {
+    location = mySprite.tilemapLocation()
+})
+forever(function () {
+	
+})
+forever(function () {
+    if (location == tiles.getTileLocation(0, 1)) {
+        Reverse_Gravity()
+    }
 })
