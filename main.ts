@@ -18,7 +18,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
     if (GRAVITY == 3) {
         music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.InBackground)
-        mySprite.vy = -150
+        mySprite.vy = -100
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile12`, function (sprite, location) {
@@ -173,7 +173,7 @@ if (list == 1) {
 }
 let textSprite = textsprite.create(convertToText(["ATTEMPT", DEATH]))
 let textSprite2 = textsprite.create("ATTEMPT")
-DEATH = 0
+DEATH = 1
 mySprite.startEffect(effects.trail)
 scene.cameraFollowSprite(mySprite)
 tiles.setCurrentTilemap(tilemap`level2`)
